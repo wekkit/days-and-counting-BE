@@ -6,9 +6,17 @@
     <title>TV</title>
   </head>
   <body>
-    <button id="btn">send</button>
-    <p id="text"></p>
-    <div id="qr-remote"></div>
+    <p>
+      current room code:
+      <span id="code"></span>
+    </p>
+    <p>
+      current channel:
+      <span id="channel"></span>
+    </p>
+    <a id="link" target="_blank">
+      <div id="qr-remote"></div>
+    </a>
     <script src="/socket.io.js"></script>
     <script src="/qr.min.js"></script>
     <script src="./index.js"></script>

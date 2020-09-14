@@ -2,22 +2,21 @@ const socket = io('http://localhost:3000')
 const qrcode = new QRCode('qr-remote')
 
 let roomId = ''
-const btn = document.getElementById('btn')
-const text = document.getElementById('text')
+const code = document.getElementById('code')
+const link = document.getElementById('link')
+const channel = document.getElementById('channel')
 
 socket.on('connect', () => {
   socket.on(String(socket.id), (id) => {
-    console.log(id)
+    console.log('room code received:', id)
     roomId = id
-    text.innerHTML = roomId
-    qrcode.makeCode(`http://localhost:5000/remote.html?id=${roomId}`)
+    code.innerHTML = roomId
+    link.href = `/remote?roomId=${roomId}`
+    qrcode.makeCode(`http://localhost:5000/remote.html?roomId=${roomId}`)
   })
 
   socket.on('message', (data) => {
-    console.log('message', data)
+    console.log('message received:', data)
+    channel.innerHTML = data.value
   })
-})
-
-btn.addEventListener('click', () => {
-  socket.emit(roomId, { hello: 'world' })
 })
