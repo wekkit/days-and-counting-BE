@@ -22,3 +22,7 @@ This project is a proof of concept for the use of socket.io to create a website 
 - Main server logic is in `server.js`. Code for generating room id, broadcasting the id to the client on connection, and relaying messages from remote control clients to appropriate TV clients will be done here.
 - TV client logic is in `index.js`. On startup, it will connect to the server and expect a return message to the socket id with the generated room id. It will then listen for the room id and any corresponding messages.
 - Remote control logic is in `remote.js`. On pressing any of the buttons, it will simply emit a `channel` event with the `roomId` that was passed to it from the URL params, as well as the value of the button pressed.
+
+## WIP
+
+- socket.io server address on the web pages is hard coded to `http://localhost:3000` for now.

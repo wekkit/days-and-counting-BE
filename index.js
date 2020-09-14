@@ -11,8 +11,9 @@ socket.on('connect', () => {
     console.log('room code received:', id)
     roomId = id
     code.innerHTML = roomId
-    link.href = `/remote?roomId=${roomId}`
-    qrcode.makeCode(`http://localhost:5000/remote.html?roomId=${roomId}`)
+    const url = `/remote?roomId=${roomId}`
+    link.href = url
+    qrcode.makeCode(url)
   })
 
   socket.on('message', (data) => {
