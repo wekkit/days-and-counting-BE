@@ -16,7 +16,7 @@ io.on('connection', (socket) => {
     io.to(idVal).emit('message', { channel })
   })
   socket.on('disconnect', () => {
-    console.log('a user disconnected')
+    console.log(`a user disconnected: room ${roomId}`)
   })
 })
 
